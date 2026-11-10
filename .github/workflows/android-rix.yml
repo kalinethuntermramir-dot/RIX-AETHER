@@ -385,6 +385,10 @@ jobs:
 
       - name: Assemble debug APK
         working-directory: .
+        env:
+          RIX_KEYSTORE_PASS: ${{ secrets.RIX_KEYSTORE_PASS }}
+          RIX_KEY_ALIAS: ${{ secrets.RIX_KEY_ALIAS }}
+          RIX_KEY_PASS: ${{ secrets.RIX_KEY_PASS }}
         run: |
           gradle :app:assembleDebug -PrixAbis="${RIX_ABIS}" --no-daemon --stacktrace
 
